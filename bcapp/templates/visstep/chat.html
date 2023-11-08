@@ -1,0 +1,98 @@
+{% extends "chat_base.html" %}
+
+{% block script %}
+
+<script>
+    var response;
+    var label;
+    var result;
+    var date_1;
+    var date_2;
+    var stepcount_1;
+    var stepcount_2;
+    $('#chatting').append('<div class="msg_box receive"><span>'+ 
+        "안녕하세요. 해당 모바일 서비스에는 귀하의 걸음 수 데이터가 저장되어 있습니다." 
+        +'</span></div>');
+    $('#chatting').append('<div class="msg_box receive"><span>'+ 
+        "지금은 이번주, 저번주, 이번달, 저번달, 올해, 월별, 월별 비교에 대한 데이터 탐색만 제공하고 있습니다." 
+        +'</span></div>');
+    $('#chatting').append('<div class="msg_box receive"><span>'+ 
+        "궁금하신 기간의 걸음 수가 있으면 저에게 물어봐주세요." 
+        +'</span></div>');
+    
+
+    $('#btn_submit').click(function () {
+        send();
+    });
+
+    $('#form').on('submit', function(e){
+        e.preventDefault();
+        send();
+    });
+    
+    function send(){
+        // 입력 값 없으면 에러 메세지
+        if($('#input1').val() == ''){
+          alert("input message!");
+        }
+
+        // 입력 값 있을 때 처리
+        else{
+            $('#chatting').append('<div class="msg_box send"><span>'+$('#input1').val()+'<span></div>');
+            $("#chatting").scrollTop($("#chatting")[0].scrollHeight);
+            console.log("serial"+$('#form').serialize())
+            $.ajax({
+                url:  'http://127.0.0.1:8000/chat/', // 챗봇 api url
+                async:false,
+                type: 'post',
+                dataType: 'JSON',
+                data: $('#form').serialize(),
+                success: function(data) {
+                    response = data.response
+                    label = data.label
+                    date_1 = data.date_1
+                    date_2 = data.date_2
+                    stepcount_1 = data.stepcount_1
+                    stepcount_2 = data.stepcount_2
+                    legend_value = data.legend_value
+                    
+                    $('#chatting').append('<div class="msg_box receive"><span>'+ response +'</span></div>');
+                    $('#chatting').append('<div id="vis"></div>');
+                    $("#chatting").scrollTop($("#chatting")[0].scrollHeight);
+                    // $('#chatting').append('<div class="msg_box receive" id="vis"><span></span></div>');
+                    // $("#chatting").scrollTop($("#chatting")[0].scrollHeight);
+
+                    if(label == 'weeks'){
+                        $.getScript("../../static/js/chat_weeks.js")
+                    }
+                    else if(label == 'month'){
+                        $.getScript("../../static/js/chat_month.js")
+                    }
+                    else if(label == 'avg_weeks'){
+                        $.getScript("../../static/js/chat_weeks.js")
+                    }
+                    else if(label == 'avg_months'){
+                        $.getScript("../../static/js/chat_weeks.js")
+                    }
+                    else{
+                        $.getScript("../../static/js/chat_compare.js")
+                    }
+                },
+                /* 에러 확인 부분 */
+    			error: function(request,status,error) {
+                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+    				// console.log("[error] : " + JSON.stringify(xhr));
+    				console.log("");     				
+    			},
+                
+            });
+            $('#input1').val('');
+            
+            
+            
+        }
+    }
+    
+    </script>
+
+{% endblock %}

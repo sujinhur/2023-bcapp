@@ -1,0 +1,244 @@
+/* stylelint-disable selector-list-comma-newline-after */
+
+.blog-header {
+    line-height: 1;
+    border-bottom: 1px solid #198754;
+}
+  
+.blog-header-logo {
+font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+font-size: 2.25rem;
+}
+
+.blog-header-logo:hover {
+text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+}
+
+.display-4 {
+font-size: 2.5rem;
+}
+@media (min-width: 768px) {
+.display-4 {
+    font-size: 3rem;
+}
+}
+
+.nav-scroller {
+position: relative;
+z-index: 2;
+height: 2.75rem;
+overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+display: flex;
+flex-wrap: nowrap;
+padding-bottom: 1rem;
+margin-top: -1px;
+overflow-x: auto;
+text-align: center;
+white-space: nowrap;
+-webkit-overflow-scrolling: touch;
+}
+
+.nav-scroller .nav-link {
+padding-top: .75rem;
+padding-bottom: .75rem;
+font-size: .875rem;
+}
+
+.card-img-right {
+height: 100%;
+border-radius: 0 3px 3px 0;
+}
+
+.flex-auto {
+flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+.h-md-250 { height: 250px; }
+}
+
+/* Pagination */
+.blog-pagination {
+margin-bottom: 4rem;
+}
+.blog-pagination > .btn {
+border-radius: 2rem;
+}
+
+/*
+* Blog posts
+*/
+.blog-post {
+margin-bottom: 4rem;
+}
+.blog-post-title {
+margin-bottom: .25rem;
+font-size: 2.5rem;
+}
+.blog-post-meta {
+margin-bottom: 1.25rem;
+color: #727272;
+}
+
+/*
+* Footer
+*/
+.blog-footer {
+padding: 1.7rem 0;
+color: #727272;
+text-align: center;
+background-color: #f9f9f9;
+border-top: .05rem solid #e5e5e5;
+}
+.blog-footer p:last-child {
+margin-bottom: 0;
+}
+
+.nav-link{color:inherit!important;}
+
+
+.img_rotate{
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+/* DatePicker CSS */
+
+.drp-buttons .btn-primary {
+    background-color: #198754;
+    border-color: #198754;
+}
+
+.daterangepicker td.in-range {
+    background-color: #c9e6d86b;
+    border-color: transparent;
+    color: #000;
+    border-radius: 0;
+}
+
+.daterangepicker td.start-date {
+    border-radius: 4px 0 0 4px;
+}
+
+.daterangepicker td.end-date {
+    border-radius: 0 4px 4px 0;
+}
+
+.daterangepicker td.start-date.end-date {
+    border-radius: 4px;
+}
+
+.daterangepicker td.active, .daterangepicker td.active:hover {
+    background-color: #198754;
+    border-color: transparent;
+    color: #fff;
+    opacity: 0.75;  
+}
+
+.daterangepicker .drp-calendar.left {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    margin-top: 7px;
+}
+
+.daterangepicker .drp-calendar.left tbody {
+    display: none !important;
+}
+
+.daterangepicker .drp-calendar.left thead > tr:nth-child(2) {
+    display: none !important;
+}
+
+.daterangepicker .drp-calendar.left th.month {
+    display: none !important;
+}
+
+.daterangepicker .drp-calendar.left .calendar-table {
+    background: transparent !important;
+}
+
+.daterangepicker .daterangepicker.ltr .ranges, .daterangepicker.ltr .drp-calendar {
+    float: none !important;
+}
+
+.daterangepicker .drp-calendar.left .daterangepicker_input {
+    position: absolute !important;
+}
+
+.prev {
+    margin-top: 10px;
+}
+
+#vis {
+    position: relative;
+  }  
+
+
+  /* chat css */
+.chat_header {
+    position: fixed;
+    width: 100%;
+    padding: 10px 15px;
+    border-bottom: 1px solid #95a6b4;
+    background-color: #439f76;
+    z-index: 2;
+}
+
+.chat_content {
+    height: 100%;
+    width: 100%;
+    overflow-y:scroll;
+    padding-top:90px; 
+    padding-left: 15px;
+    padding-bottom: 50px;
+    padding-right: 15px;
+    z-index: 1;
+    
+}
+
+.chat_footer {
+    position:fixed; 
+    left: 0; 
+    bottom:0; 
+    width: 100%;
+}
+
+.msg_box:after {
+    content: '';
+    display: block;
+    clear:both;
+}
+
+.msg_box > span {
+    padding: 3px 5px;
+    word-break: break-all;
+    display: block;
+    max-width: 200px;
+    margin-bottom: 10px;
+    border-radius: 4px
+}
+
+.msg_box.send > span {
+    background:#198754;
+    float: right;
+    opacity: 0.75;
+    color: white;
+}
+
+.msg_box.receive > span {
+    background:#dee2e6;
+    float: left;
+    opacity: 0.75;
+}
