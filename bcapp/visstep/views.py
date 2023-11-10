@@ -284,7 +284,7 @@ def chat_compare(input1):
     stepcount_2 = []
 
     # 23년 3월과 4월 비교
-    if "3" in input1:
+    if "3월" in input1:
         legend_value = ["23년 4월", "23년 3월"]
         answer = "올해 3월과 4월 데이터 비교 결과입니다."
         for i in StepCount_Data.objects.raw("select * from stepcountData where date between '2023-04-01' and date('2023-04-01','+1 month','-1 days') ORDER BY (date) ASC"):
